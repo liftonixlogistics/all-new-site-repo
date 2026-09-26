@@ -66,9 +66,9 @@
 
     .journey{height:620vh;position:relative;background:#050505}
     .journey-sticky{position:sticky;top:0;height:100svh;height:100dvh;overflow:hidden;background:#050505;isolation:isolate}
-    .journey-media{position:absolute;inset:0;z-index:1;background:#050505 url('/assets/poster.jpg') center/cover no-repeat}
-    .journey-media video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity .35s ease;background:#050505}
-    .journey-media video.ready{opacity:1}
+    .journey-media{position:absolute;inset:0;z-index:1;background:#050505}
+    .journey-media canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity .35s ease;background:#050505}
+    .journey-media canvas.ready{opacity:1}
     .journey-shade{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(2,2,2,.62),rgba(2,2,2,.07) 42%,rgba(2,2,2,.18) 72%,rgba(2,2,2,.52)),linear-gradient(to bottom,rgba(0,0,0,.42),transparent 24%,transparent 74%,rgba(0,0,0,.7))}
     .journey-head{position:absolute;z-index:5;top:102px;left:clamp(20px,4vw,68px);right:clamp(20px,4vw,68px);display:flex;align-items:center;justify-content:space-between;pointer-events:none}.journey-head .label{display:flex;align-items:center;gap:9px;font-size:10px;text-transform:uppercase;letter-spacing:.17em;color:#c7bcc2}.journey-head .label i{width:7px;height:7px;border-radius:50%;background:var(--pink);box-shadow:0 0 20px var(--pink)}.journey-percent{font-size:10px;letter-spacing:.15em;color:#9c9197;font-variant-numeric:tabular-nums}
     .journey-copy{position:absolute;z-index:5;inset:0;pointer-events:none}.story{position:absolute;top:50%;left:clamp(20px,6vw,96px);width:min(540px,44vw);opacity:0;transform:translateY(-42%) translateY(30px);transition:opacity .28s linear,transform .4s cubic-bezier(.2,.75,.25,1)}.story.active{opacity:1;transform:translateY(-42%) translateY(0)}.story.right{left:auto;right:clamp(20px,6vw,96px);text-align:right}.story.right .micro{justify-content:flex-end}.story.right p{margin-left:auto}.story.center{left:50%;top:auto;bottom:10%;width:min(900px,90vw);text-align:center;transform:translateX(-50%) translateY(24px)}.story.center.active{transform:translateX(-50%) translateY(0)}.story.center .micro{justify-content:center}.story.center p{margin-inline:auto}
@@ -95,12 +95,12 @@
       .hero-grid{grid-template-columns:1fr;gap:34px}.hero h1{max-width:820px}.hero-side{max-width:640px}.hero-orb{width:74vw;right:-28vw;top:16%}
       .services-top{display:block}.services-top .section-copy{max-width:660px}.card.primary,.card.secondary,.card.third{grid-column:span 6}.card.primary{min-height:320px}
       .system-wrap,.proof-grid,.contact-box{grid-template-columns:1fr}.stack{position:relative;top:auto;min-height:420px}.proof-main h3{margin-top:90px}.contact-box{gap:38px}
-      .journey-media video{object-position:center}
+      .journey-media canvas{object-position:center}
     }
     @media(max-width:680px){
       .shell{width:min(100% - 28px,var(--max))}.nav{height:70px}.mobile-menu{top:70px}
       .hero{padding:110px 0 70px;min-height:100svh}.hero h1{font-size:clamp(54px,16.5vw,82px)}.hero-meta{gap:16px;line-height:1.6}.scroll-cue{display:none}
-      .journey{height:560vh}.journey-head{top:88px;left:16px;right:16px}.journey-media{background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#050505}.journey-media video{object-fit:contain;background:#050505}.journey-shade{background:linear-gradient(to bottom,rgba(0,0,0,.42),rgba(0,0,0,.04) 24%,rgba(0,0,0,.06) 68%,rgba(0,0,0,.78))}.story,.story.right{left:16px;right:16px;top:auto;bottom:11%;width:auto;text-align:left;transform:translateY(24px)}.story.active,.story.right.active{transform:translateY(0)}.story.right .micro{justify-content:flex-start}.story.right p{margin-left:0}.story.center{left:16px;right:16px;width:auto;bottom:10%;transform:translateY(24px)}.story.center.active{transform:translateY(0)}.story.center,.story.center p{text-align:left}.story.center .micro{justify-content:flex-start}.story h2{font-size:clamp(38px,12vw,64px);max-width:520px}.story p{font-size:14px;max-width:500px}.journey-progress{left:16px;right:16px;bottom:16px}
+      .journey{height:560vh}.journey-head{top:88px;left:16px;right:16px}.journey-media{background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#050505}.journey-media canvas{object-fit:contain;background:#050505}.journey-shade{background:linear-gradient(to bottom,rgba(0,0,0,.42),rgba(0,0,0,.04) 24%,rgba(0,0,0,.06) 68%,rgba(0,0,0,.78))}.story,.story.right{left:16px;right:16px;top:auto;bottom:11%;width:auto;text-align:left;transform:translateY(24px)}.story.active,.story.right.active{transform:translateY(0)}.story.right .micro{justify-content:flex-start}.story.right p{margin-left:0}.story.center{left:16px;right:16px;width:auto;bottom:10%;transform:translateY(24px)}.story.center.active{transform:translateY(0)}.story.center,.story.center p{text-align:left}.story.center .micro{justify-content:flex-start}.story h2{font-size:clamp(38px,12vw,64px);max-width:520px}.story p{font-size:14px;max-width:500px}.journey-progress{left:16px;right:16px;bottom:16px}
       .services,.systems,.proof,.contact{padding:92px 0}.service-grid{grid-template-columns:1fr;margin-top:38px}.card.primary,.card.secondary,.card.third{grid-column:auto;min-height:250px}.card h3{bottom:68px;font-size:34px}.card p{font-size:13px}.system-wrap{gap:38px}.stack{min-height:350px}.core::after{width:330px;height:330px}.contact-box{padding:24px;border-radius:26px}.form{grid-template-columns:1fr}.field.full,.submit,.form-note{grid-column:auto}.footer-inner{display:grid;gap:14px}.footer-links{flex-wrap:wrap}
     }
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-orb,.scroll-cue i::after{animation:none}.card,.pill,.nav-cta{transition:none}.journey{height:150vh}.story{display:none}.story[data-stage="final"]{display:block;opacity:1;transform:none}}
@@ -141,9 +141,7 @@
   <section class="journey" id="journey" aria-label="AI automation journey">
     <div class="journey-sticky">
       <div class="journey-media">
-        <video id="journeyVideo" muted playsinline preload="auto" poster="/assets/poster.jpg" aria-hidden="true">
-          <source src="/assets/timex-journey.mp4" type="video/mp4" />
-        </video>
+        <canvas id="journeyCanvas" role="img" aria-label="Scroll-controlled cinematic animation of a yellow classic car moving through a futuristic AI city"></canvas>
       </div>
       <div class="journey-shade"></div>
       <div class="journey-head"><div class="label"><i></i>AI Automation Journey</div><div class="journey-percent" id="journeyPercent">00%</div></div>
@@ -155,7 +153,7 @@
         <article class="story center" data-stage="final" data-start=".82" data-end="1.01"><div class="micro"><i></i>Timex Solution Inc</div><h2>Build it. Connect it. <span>Automate it.</span></h2><p>AI should not be another tool your team has to manage. It should quietly connect the tools you already use.</p></article>
       </div>
       <div class="journey-progress"><b id="journeyBar"></b></div>
-      <div class="journey-fallback" id="journeyFallback">Animation unavailable — showing a static preview.</div>
+      <div class="journey-fallback" id="journeyFallback">Animation unavailable — please refresh to retry.</div>
     </div>
   </section>
 
@@ -236,34 +234,232 @@
   <script>
     (() => {
       const clamp=(n,a=0,b=1)=>Math.min(b,Math.max(a,n));
-      const menuBtn=document.getElementById('menuBtn'), mobileMenu=document.getElementById('mobileMenu');
-      menuBtn?.addEventListener('click',()=>{const open=mobileMenu.classList.toggle('open');menuBtn.setAttribute('aria-expanded',String(open));});
-      mobileMenu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobileMenu.classList.remove('open');menuBtn.setAttribute('aria-expanded','false');}));
 
-      document.querySelectorAll('.service-link').forEach(link=>link.addEventListener('click',()=>{const service=link.dataset.service;const select=document.getElementById('service');if(service&&select){[...select.options].some((o,i)=>o.text===service?(select.selectedIndex=i,true):false);}}));
+      const menuBtn=document.getElementById('menuBtn');
+      const mobileMenu=document.getElementById('mobileMenu');
+      menuBtn?.addEventListener('click',()=>{
+        const open=mobileMenu.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded',String(open));
+      });
+      mobileMenu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+        mobileMenu.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded','false');
+      }));
+
+      document.querySelectorAll('.service-link').forEach(link=>link.addEventListener('click',()=>{
+        const service=link.dataset.service;
+        const select=document.getElementById('service');
+        if(service&&select){
+          [...select.options].some((o,i)=>o.text===service?(select.selectedIndex=i,true):false);
+        }
+      }));
 
       document.getElementById('contactForm')?.addEventListener('submit',(e)=>{
         e.preventDefault();
         const fd=new FormData(e.currentTarget);
         const subject=`Project inquiry — ${fd.get('service')||'Timex Solution Inc'}`;
-        const body=[`Name: ${fd.get('name')||''}`,`Company: ${fd.get('company')||''}`,`Email: ${fd.get('email')||''}`,`Service: ${fd.get('service')||''}`,'',String(fd.get('message')||'')].join('\n');
+        const body=[
+          `Name: ${fd.get('name')||''}`,
+          `Company: ${fd.get('company')||''}`,
+          `Email: ${fd.get('email')||''}`,
+          `Service: ${fd.get('service')||''}`,
+          '',
+          String(fd.get('message')||'')
+        ].join('\n');
         location.href=`mailto:team@timexsolutioninc.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
       });
 
-      const section=document.querySelector('.journey'),video=document.getElementById('journeyVideo'),bar=document.getElementById('journeyBar'),pct=document.getElementById('journeyPercent'),fallback=document.getElementById('journeyFallback'),stories=[...document.querySelectorAll('.story')];
+      const section=document.querySelector('.journey');
+      const canvas=document.getElementById('journeyCanvas');
+      const ctx=canvas.getContext('2d',{alpha:false,desynchronized:true});
+      const bar=document.getElementById('journeyBar');
+      const pct=document.getElementById('journeyPercent');
+      const fallback=document.getElementById('journeyFallback');
+      const stories=[...document.querySelectorAll('.story')];
+
+      const TOTAL_FRAMES=236;
+      const FRAME_W=720;
+      const FRAME_H=405;
+      const FRAMES_PER_SHEET=24;
+      const COLS=6;
+      const SHEET_COUNT=10;
+      const sheetUrls=Array.from({length:SHEET_COUNT},(_,i)=>
+        `/assets/frames-data-hq/sheet-${String(i).padStart(2,'0')}.b64.txt`
+      );
+
+      const cache=new Map();
+      const loading=new Map();
       const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-      let duration=7.86,target=0,smooth=0,last=performance.now(),ready=false,lastSeek=-1,unlocked=false;
-      const makeReady=()=>{if(ready)return;ready=true;if(Number.isFinite(video.duration)&&video.duration>0)duration=video.duration;video.classList.add('ready');try{video.currentTime=.001}catch(_){}};
-      if(video.readyState>=1) makeReady();
-      video.addEventListener('loadedmetadata',makeReady,{once:true});
-      video.addEventListener('canplay',makeReady,{once:true});
-      video.addEventListener('error',()=>{fallback.classList.add('show');video.classList.remove('ready');});
-      const unlock=()=>{if(unlocked)return;unlocked=true;const p=video.play();if(p&&p.then)p.then(()=>video.pause()).catch(()=>{});};
-      addEventListener('pointerdown',unlock,{once:true,passive:true});addEventListener('touchstart',unlock,{once:true,passive:true});addEventListener('wheel',unlock,{once:true,passive:true});
-      const readTarget=()=>{if(reduced){target=.88;return;}const r=section.getBoundingClientRect();const max=Math.max(1,section.offsetHeight-innerHeight);target=clamp(-r.top/max);};
-      const updateStory=(p)=>{stories.forEach(s=>s.classList.toggle('active',p>=Number(s.dataset.start)&&p<Number(s.dataset.end)));bar.style.width=(p*100).toFixed(2)+'%';pct.textContent=String(Math.round(p*100)).padStart(2,'0')+'%';};
-      const tick=(now)=>{const dt=Math.min(.05,(now-last)/1000);last=now;const alpha=1-Math.exp(-(innerWidth<700?10:13)*dt);smooth+=(target-smooth)*alpha;updateStory(smooth);if(ready&&!reduced){const t=clamp(smooth)*Math.max(.05,duration-.04);if(Math.abs(t-lastSeek)>.012){try{video.currentTime=t;lastSeek=t}catch(_){}}}requestAnimationFrame(tick);};
-      addEventListener('scroll',readTarget,{passive:true});addEventListener('resize',readTarget,{passive:true});readTarget();requestAnimationFrame(tick);
+      let target=0;
+      let smooth=0;
+      let currentFrame=-1;
+      let requestedFrame=0;
+      let last=performance.now();
+      let failed=false;
+      let loadedCount=0;
+
+      function decodeBase64Image(text){
+        const b64=text.trim();
+        const raw=atob(b64);
+        const bytes=new Uint8Array(raw.length);
+        for(let i=0;i<raw.length;i++) bytes[i]=raw.charCodeAt(i);
+        const blob=new Blob([bytes],{type:'image/webp'});
+        const url=URL.createObjectURL(blob);
+        return new Promise((resolve,reject)=>{
+          const img=new Image();
+          img.decoding='async';
+          img.onload=()=>resolve({img,url});
+          img.onerror=()=>{
+            URL.revokeObjectURL(url);
+            reject(new Error('Sprite decode failed'));
+          };
+          img.src=url;
+        });
+      }
+
+      async function loadSheet(index){
+        if(index<0||index>=SHEET_COUNT) return null;
+        if(cache.has(index)) return cache.get(index);
+        if(loading.has(index)) return loading.get(index);
+
+        const promise=(async()=>{
+          const res=await fetch(sheetUrls[index],{cache:'force-cache'});
+          if(!res.ok) throw new Error(`Sprite request failed: ${res.status}`);
+          const data=await res.text();
+          const asset=await decodeBase64Image(data);
+          cache.set(index,asset);
+          loadedCount++;
+          pct.textContent=`Loading ${loadedCount}/${SHEET_COUNT}`;
+          return asset;
+        })().catch(err=>{
+          console.error('Timex animation:',err);
+          failed=true;
+          fallback.classList.add('show');
+          pct.textContent='LOAD ERROR';
+          return null;
+        }).finally(()=>loading.delete(index));
+
+        loading.set(index,promise);
+        return promise;
+      }
+
+      function trimCache(center){
+        const radius=innerWidth<760?1:2;
+        for(const [index,asset] of cache){
+          if(Math.abs(index-center)>radius){
+            URL.revokeObjectURL(asset.url);
+            cache.delete(index);
+          }
+        }
+      }
+
+      function resizeCanvas(){
+        const rect=canvas.getBoundingClientRect();
+        const dpr=Math.min(devicePixelRatio||1,innerWidth<760?1.15:1.5);
+        const w=Math.max(1,Math.round(rect.width*dpr));
+        const h=Math.max(1,Math.round(rect.height*dpr));
+        if(canvas.width!==w||canvas.height!==h){
+          canvas.width=w;
+          canvas.height=h;
+          currentFrame=-1;
+        }
+      }
+
+      function drawFrame(frame){
+        resizeCanvas();
+        frame=clamp(Math.round(frame),0,TOTAL_FRAMES-1);
+        requestedFrame=frame;
+        const sheetIndex=Math.floor(frame/FRAMES_PER_SHEET);
+        const local=frame-sheetIndex*FRAMES_PER_SHEET;
+        const asset=cache.get(sheetIndex);
+
+        if(!asset){
+          loadSheet(sheetIndex).then(a=>{
+            if(a && Math.floor(requestedFrame/FRAMES_PER_SHEET)===sheetIndex){
+              currentFrame=-1;
+              drawFrame(requestedFrame);
+            }
+          });
+          loadSheet(sheetIndex+1);
+          loadSheet(sheetIndex-1);
+          return;
+        }
+
+        if(frame===currentFrame) return;
+        currentFrame=frame;
+
+        const sx=(local%COLS)*FRAME_W;
+        const sy=Math.floor(local/COLS)*FRAME_H;
+        const cw=canvas.width;
+        const ch=canvas.height;
+        const portrait=innerWidth<=760 || innerHeight>innerWidth;
+        const scale=portrait
+          ? Math.min(cw/FRAME_W,ch/FRAME_H)
+          : Math.max(cw/FRAME_W,ch/FRAME_H);
+        const dw=FRAME_W*scale;
+        const dh=FRAME_H*scale;
+        const dx=(cw-dw)/2;
+        const dy=(ch-dh)/2;
+
+        ctx.fillStyle='#050505';
+        ctx.fillRect(0,0,cw,ch);
+        ctx.imageSmoothingEnabled=true;
+        ctx.imageSmoothingQuality='high';
+        ctx.drawImage(asset.img,sx,sy,FRAME_W,FRAME_H,dx,dy,dw,dh);
+        canvas.classList.add('ready');
+
+        trimCache(sheetIndex);
+        if(sheetIndex<SHEET_COUNT-1) loadSheet(sheetIndex+1);
+        if(sheetIndex>0) loadSheet(sheetIndex-1);
+      }
+
+      function readTarget(){
+        if(reduced){
+          target=.92;
+          return;
+        }
+        const r=section.getBoundingClientRect();
+        const max=Math.max(1,section.offsetHeight-innerHeight);
+        target=clamp(-r.top/max);
+      }
+
+      function updateStory(p){
+        stories.forEach(s=>{
+          const start=Number(s.dataset.start);
+          const end=Number(s.dataset.end);
+          s.classList.toggle('active',p>=start&&p<end);
+        });
+        bar.style.width=(p*100).toFixed(2)+'%';
+        if(!failed && cache.size>0){
+          pct.textContent=String(Math.round(p*100)).padStart(2,'0')+'%';
+        }
+      }
+
+      function tick(now){
+        const dt=Math.min(.05,(now-last)/1000);
+        last=now;
+        const alpha=1-Math.exp(-(innerWidth<700?11:14)*dt);
+        smooth+=(target-smooth)*alpha;
+        updateStory(smooth);
+        drawFrame(smooth*(TOTAL_FRAMES-1));
+        requestAnimationFrame(tick);
+      }
+
+      addEventListener('scroll',readTarget,{passive:true});
+      addEventListener('resize',()=>{
+        readTarget();
+        currentFrame=-1;
+      },{passive:true});
+
+      readTarget();
+      loadSheet(0).then(first=>{
+        if(first){
+          drawFrame(0);
+          loadSheet(1);
+        }
+      });
+      if(reduced) loadSheet(9);
+      requestAnimationFrame(tick);
     })();
   </script>
 </body>
