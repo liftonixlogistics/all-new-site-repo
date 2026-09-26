@@ -1,9 +1,11 @@
-# Timex website assets
+# Website assets
 
-Runtime assets for the Timex Solution Inc website live in this folder.
+Runtime animation data for the Timex Solution Inc website.
 
-Expected production files:
-- `poster.jpg`
-- `timex-journey.mp4`
+## HQ frame data
 
-The website references them as `/assets/poster.jpg` and `/assets/timex-journey.mp4`.
+`frames-data-hq/` contains 10 base64-encoded WebP sprite sheets generated from the supplied 236-frame animation.
+
+The homepage loads these files progressively, decodes each sheet in the browser, and draws the required frame to a canvas based on scroll position.
+
+Do not rename the sprite-data files without updating the `sheetUrls` configuration in `index.html`.
