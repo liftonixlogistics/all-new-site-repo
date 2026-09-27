@@ -1,11 +1,20 @@
 # Website assets
 
-Runtime animation data for the Timex Solution Inc website.
+Shared styles and interaction code for the Timex Solution Inc multi-page website.
 
-## HQ frame data
+## Robot scroll experience
 
-`frames-data-hq/` contains 10 base64-encoded WebP sprite sheets generated from the supplied 236-frame animation.
+The homepage is now dedicated to the robot scroll experience.
 
-The homepage loads these files progressively, decodes each sheet in the browser, and draws the required frame to a canvas based on scroll position.
+- Shared site styles: `assets/site.css`
+- Shared page interactions: `assets/site.js`
+- Homepage frame-scrub engine: `assets/home.js`
+- Robot source instructions: `assets/robot/README.md`
 
-Do not rename the sprite-data files without updating the `sheetUrls` configuration in `index.html`.
+The previous yellow-taxi sprite animation has been removed.
+
+The new homepage is prepared for the original 241-frame sequences:
+- desktop 16:9: `assets/robot/desktop/ezgif-frame-001.jpg` ... `241.jpg`
+- mobile 9:16: `assets/robot/mobile/ezgif-frame-001.jpg` ... `241.jpg`
+
+Keep the supplied source JPEGs at their original resolution and quality.
