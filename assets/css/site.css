@@ -503,17 +503,17 @@ h1,h2,h3,p{margin-top:0}
 /* Stagger chapter UI into view */
 .chapter .chip,.chapter .float-card,.chapter .chapter-actions .btn{
   opacity:0;
-  transform:translateY(10px);
+  translate:0 10px;
   transition:
     opacity .35s ease,
-    transform .45s var(--ease),
+    translate .45s var(--ease),
     border-color .22s ease,
     background .22s ease,
     box-shadow .22s ease;
 }
 .chapter.active .chip,.chapter.active .float-card,.chapter.active .chapter-actions .btn{
   opacity:1;
-  transform:none;
+  translate:0 0;
 }
 .chapter.active .chip:nth-child(2),.chapter.active .float-card:nth-child(2),.chapter.active .chapter-actions .btn:nth-child(2){transition-delay:60ms}
 .chapter.active .chip:nth-child(3),.chapter.active .float-card:nth-child(3){transition-delay:110ms}
