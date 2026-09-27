@@ -5,25 +5,18 @@
 ```
 assets/
 ├── css/
-│   └── site.css        # Shared design system, components, responsive rules
+│   └── site.css
 ├── js/
-│   ├── site.js         # Navigation, reveal effects, pointer effects, contact form
-│   └── home.js         # Scroll-controlled robot frame engine
+│   ├── site.js
+│   └── home.js
 └── robot/
-    ├── desktop/        # 16:9 original JPEG frames
-    └── mobile/         # 9:16 original JPEG frames
+    ├── desktop.mp4
+    └── mobile.mp4
 ```
 
-The previous yellow-taxi sprite animation has been removed.
+The homepage uses one high-quality, scroll-scrubbed MP4 per device class instead of hundreds of individual network image requests.
 
-## Robot source frames
-
-The homepage expects 241 frames per orientation.
-
-Desktop:
-`assets/robot/desktop/ezgif-frame-001.jpg` … `ezgif-frame-241.jpg`
-
-Mobile:
-`assets/robot/mobile/ezgif-frame-001.jpg` … `ezgif-frame-241.jpg`
-
-Keep these source files at their original resolution and JPEG quality.
+- Desktop video: 1912 × 1080, 30 fps
+- Mobile video: 1080 × 1912, 30 fps
+- Both are generated from the supplied 241-frame sequences without resizing.
+- The MP4 encoding uses an intra/key frame for every source frame so forward and reverse scroll seeking stays responsive.
