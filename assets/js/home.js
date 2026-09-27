@@ -141,7 +141,7 @@
     ready=true;
 
     // Force the first decoded frame to paint immediately.
-    var initial=reducedMotion?.84:smooth;
+    var initial=reducedMotion ? .84 : smooth;
     lastSeek=-1;
     seek(initial);
 
