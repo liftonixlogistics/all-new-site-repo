@@ -29,19 +29,21 @@ The site intentionally stays framework-free so a manual developer can understand
 
 ## Robot animation
 
-The homepage is designed around two original 241-frame JPEG sequences.
+The homepage uses two dedicated high-quality H.264 MP4 files generated from the supplied 241-frame image sequences.
 
 Desktop:
 - 16:9
 - 1912 × 1080
-- `assets/robot/desktop/ezgif-frame-001.jpg` through `ezgif-frame-241.jpg`
+- 30 fps
+- `assets/robot/desktop.mp4`
 
 Mobile:
 - 9:16
 - 1080 × 1912
-- `assets/robot/mobile/ezgif-frame-001.jpg` through `ezgif-frame-241.jpg`
+- 30 fps
+- `assets/robot/mobile.mp4`
 
-The source JPEGs should remain at their original resolution and quality. The browser only keeps a small rolling window of decoded frames in memory and preloads around the current scroll direction. No source image is resized or recompressed in the repository.\n\n`assets/robot-manifest.json` stays `ready: false` until both frame folders are physically present in the repository. Switch it to `true` only after the frame upload is complete; this prevents unnecessary 404 requests while the animation assets are pending.
+The source images are not resized. The videos use very high-quality encoding and every frame is an intra/key frame, which makes scroll seeking substantially smoother than loading hundreds of individual JPEG files.
 
 ## Deployment
 
