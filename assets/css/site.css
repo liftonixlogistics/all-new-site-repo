@@ -411,16 +411,19 @@ h1,h2,h3,p{margin-top:0}
     radial-gradient(circle at 16% 70%,rgba(212,184,121,.12),transparent 24%),
     linear-gradient(135deg,#0c0913,#07060b 54%,#110d18);
 }
-.robot-canvas{
+.robot-video{
   position:absolute;
   inset:0;
   width:100%;
   height:100%;
+  object-fit:cover;
+  object-position:center;
   opacity:0;
-  background:transparent;
-  transition:opacity .5s ease;
+  background:#08060d;
+  transition:opacity .35s ease;
+  will-change:contents;
 }
-.robot-canvas.ready{opacity:1}
+.robot-video.ready{opacity:1}
 .scene-lines{
   position:absolute;
   inset:0;
@@ -436,8 +439,8 @@ h1,h2,h3,p{margin-top:0}
   position:absolute;
   inset:-20%;
   background:conic-gradient(from 190deg at 70% 44%,transparent,rgba(156,108,255,.09),transparent 30%,rgba(212,184,121,.05),transparent 54%);
-  filter:blur(40px);
-  animation:ambient-drift 14s ease-in-out infinite alternate;
+  filter:blur(26px);
+  animation:ambient-drift 18s ease-in-out infinite alternate;
 }
 @keyframes ambient-drift{
   to{transform:translate3d(-3%,2%,0) rotate(3deg)}
