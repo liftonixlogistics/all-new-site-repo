@@ -41,7 +41,7 @@ Mobile:
 - 1080 × 1912
 - `assets/robot/mobile/ezgif-frame-001.jpg` through `ezgif-frame-241.jpg`
 
-The source JPEGs should remain at their original resolution and quality. The browser only keeps a small rolling window of decoded frames in memory and preloads around the current scroll direction. No source image is resized or recompressed in the repository.
+The source JPEGs should remain at their original resolution and quality. The browser only keeps a small rolling window of decoded frames in memory and preloads around the current scroll direction. No source image is resized or recompressed in the repository.\n\n`assets/robot-manifest.json` stays `ready: false` until both frame folders are physically present in the repository. Switch it to `true` only after the frame upload is complete; this prevents unnecessary 404 requests while the animation assets are pending.
 
 ## Deployment
 
