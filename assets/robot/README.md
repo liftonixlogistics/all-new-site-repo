@@ -1,19 +1,12 @@
 # Robot scroll animation assets
 
-The homepage frame-scrub engine is in `assets/js/home.js`.
+The homepage scroll engine is `assets/js/home.js`.
 
-## Desktop
-Place the original 16:9 sequence here:
-`assets/robot/desktop/ezgif-frame-001.jpg` through `ezgif-frame-241.jpg`
+Required media files:
 
-Expected source dimensions: **1912 × 1080**
+- `assets/robot/desktop.mp4` — 1912 × 1080, 30 fps
+- `assets/robot/mobile.mp4` — 1080 × 1912, 30 fps
 
-## Mobile
-Place the original 9:16 sequence here:
-`assets/robot/mobile/ezgif-frame-001.jpg` through `ezgif-frame-241.jpg`
+These are generated directly from the supplied 241-frame desktop and mobile image sequences. Keep the exact filenames above because the homepage switches between them automatically at 760px.
 
-Expected source dimensions: **1080 × 1912**
-
-The runtime automatically selects the correct sequence at 760px, preloads frames around the user's scroll direction and keeps a limited rolling decode cache for memory stability.
-
-**Do not recompress or downscale the source frames.**
+For responsive scroll seeking, the delivered files use an intra/key frame for every source frame.
