@@ -112,7 +112,7 @@
   read();
   load(0).then(first=>{
     if(first){lastGood=first;render(0);for(let i=1;i<18;i++)load(i)}
-    else status.textContent='Robot frames ready to be added';
+    else if(status) status.textContent='Robot frames ready to be added';
   });
   requestAnimationFrame(tick);
 })();
