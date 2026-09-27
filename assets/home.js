@@ -17,19 +17,19 @@
   const pad=n=>String(n).padStart(3,'0');
   let portrait=matchMedia('(max-width:760px)').matches;
   let folder=portrait?'/assets/robot/mobile':'/assets/robot/desktop';
-  let cache=new Map(), pending=new Map(), failed=0;
+  let cache=new Map(), pending=new Map(), failed=0, assetsReady=null;
   let target=0,smooth=0,last=performance.now(),drawn=-1,lastGood=null;
 
   function url(i){return \`\${folder}/ezgif-frame-\${pad(i+1)}.jpg\`}
   function load(i){
-    if(i<0||i>=TOTAL) return Promise.resolve(null);
+    if(i<0||i>=TOTAL||assetsReady===false) return Promise.resolve(null);
     if(cache.has(i)) return Promise.resolve(cache.get(i));
     if(pending.has(i)) return pending.get(i);
     const p=new Promise(resolve=>{
       const img=new Image();
       img.decoding='async';
-      img.onload=()=>{cache.set(i,img);pending.delete(i);resolve(img)};
-      img.onerror=()=>{pending.delete(i);failed++;resolve(null)};
+      img.onload=()=>{assetsReady=true;cache.set(i,img);pending.delete(i);resolve(img)};
+      img.onerror=()=>{pending.delete(i);failed++;if(i===0) assetsReady=false;resolve(null)};
       img.src=url(i);
     });
     pending.set(i,p);return p;
@@ -102,7 +102,7 @@
     const next=matchMedia('(max-width:760px)').matches;
     if(next!==portrait){
       portrait=next;folder=portrait?'/assets/robot/mobile':'/assets/robot/desktop';
-      cache.clear();pending.clear();lastGood=null;drawn=-1;failed=0;
+      cache.clear();pending.clear();lastGood=null;drawn=-1;failed=0;assetsReady=null;
       load(0).then(()=>render(0));
     }
     read();drawn=-1;
