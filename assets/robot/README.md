@@ -1,13 +1,19 @@
-# Robot scroll assets
+# Robot scroll animation assets
 
-The homepage scroll engine uses the original supplied JPEG frame sequences without resizing or recompression.
+The homepage frame-scrub engine is in `assets/js/home.js`.
 
-Place the desktop 16:9 sequence here:
-- `assets/robot/desktop/ezgif-frame-001.jpg` through `ezgif-frame-241.jpg`
+## Desktop
+Place the original 16:9 sequence here:
+`assets/robot/desktop/ezgif-frame-001.jpg` through `ezgif-frame-241.jpg`
 
-Place the mobile 9:16 sequence here:
-- `assets/robot/mobile/ezgif-frame-001.jpg` through `ezgif-frame-241.jpg`
+Expected source dimensions: **1912 × 1080**
 
-The frame loader in `assets/home.js` automatically switches between desktop and mobile at 760px, preloads around the current scroll position, and draws the original frames to a high-DPI canvas.
+## Mobile
+Place the original 9:16 sequence here:
+`assets/robot/mobile/ezgif-frame-001.jpg` through `ezgif-frame-241.jpg`
 
-Do not recompress or downscale these source images.
+Expected source dimensions: **1080 × 1912**
+
+The runtime automatically selects the correct sequence at 760px, preloads frames around the user's scroll direction and keeps a limited rolling decode cache for memory stability.
+
+**Do not recompress or downscale the source frames.**

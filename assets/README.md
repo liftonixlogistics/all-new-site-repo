@@ -1,20 +1,29 @@
 # Website assets
 
-Shared styles and interaction code for the Timex Solution Inc multi-page website.
+## Structure
 
-## Robot scroll experience
-
-The homepage is now dedicated to the robot scroll experience.
-
-- Shared site styles: `assets/site.css`
-- Shared page interactions: `assets/site.js`
-- Homepage frame-scrub engine: `assets/home.js`
-- Robot source instructions: `assets/robot/README.md`
+```
+assets/
+├── css/
+│   └── site.css        # Shared design system, components, responsive rules
+├── js/
+│   ├── site.js         # Navigation, reveal effects, pointer effects, contact form
+│   └── home.js         # Scroll-controlled robot frame engine
+└── robot/
+    ├── desktop/        # 16:9 original JPEG frames
+    └── mobile/         # 9:16 original JPEG frames
+```
 
 The previous yellow-taxi sprite animation has been removed.
 
-The new homepage is prepared for the original 241-frame sequences:
-- desktop 16:9: `assets/robot/desktop/ezgif-frame-001.jpg` ... `241.jpg`
-- mobile 9:16: `assets/robot/mobile/ezgif-frame-001.jpg` ... `241.jpg`
+## Robot source frames
 
-Keep the supplied source JPEGs at their original resolution and quality.
+The homepage expects 241 frames per orientation.
+
+Desktop:
+`assets/robot/desktop/ezgif-frame-001.jpg` … `ezgif-frame-241.jpg`
+
+Mobile:
+`assets/robot/mobile/ezgif-frame-001.jpg` … `ezgif-frame-241.jpg`
+
+Keep these source files at their original resolution and JPEG quality.

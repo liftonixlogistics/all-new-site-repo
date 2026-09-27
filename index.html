@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <meta name="theme-color" content="#08060d">
+  <meta name="theme-color" content="#08060d">\n  <meta name="color-scheme" content="dark">
   <title>Timex Solution Inc — AI Automation & Digital Systems</title>
   <meta name="description" content="Timex Solution Inc builds custom CRM, AI automation, websites, apps, marketing systems and connected business workflows.">
-  <link rel="stylesheet" href="/assets/site.css">
+  <link rel="preload" as="image" href="/assets/robot/desktop/ezgif-frame-001.jpg" media="(min-width:761px)" fetchpriority="high">\n  <link rel="preload" as="image" href="/assets/robot/mobile/ezgif-frame-001.jpg" media="(max-width:760px)" fetchpriority="high">\n  <link rel="stylesheet" href="/assets/css/site.css">
 </head>
-<body class="home">
+<body class="home">\n  <a class="skip-link" href="#main-content">Skip to content</a>
   <nav class="site-nav">
     <div class="shell nav-inner">
       <a class="brand" href="/" aria-label="Timex Solution Inc home">
         <span class="brand-mark">T</span>
         <span class="brand-copy"><strong>Timex Solution Inc</strong><small>AUTOMATION • DIGITAL • CREATIVE</small></span>
       </a>
-      <div class="nav-links">
+      <div class="nav-links" aria-label="Primary navigation">
         <a data-nav href="/">Home</a>
         <a data-nav href="/services">Services</a>
         <a data-nav href="/automation">Automation</a>
@@ -23,14 +23,14 @@
         <a data-nav href="/contact">Contact</a>
       </div>
       <a class="nav-cta" href="/contact">Start a project</a>
-      <button class="menu-btn" aria-label="Open menu" aria-expanded="false"><span></span></button>
+      <button class="menu-btn" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu"><span></span></button>
     </div>
   </nav>
-  <div class="mobile-menu">
+  <div class="mobile-menu" id="site-menu" aria-label="Mobile navigation" aria-hidden="true">
     <a href="/">Home</a><a href="/services">Services</a><a href="/automation">Automation</a><a href="/industries">Industries</a><a href="/contact">Contact</a>
   </div>
 
-  <main class="experience" aria-label="Interactive Timex automation experience">
+  <main id="main-content" class="experience" aria-label="Interactive Timex automation experience">
     <div class="experience-sticky">
       <div class="scene-stage">
         <div class="scene-glow"></div>
@@ -40,7 +40,7 @@
       </div>
 
       <div class="scene-copy">
-        <section class="chapter active" data-start="0" data-end=".14">
+        <section class="chapter active" data-start="0" data-end=".14" aria-hidden="false">
           <div class="chapter-inner">
             <div class="chapter-box">
               <div class="eyebrow">Timex Solution Inc</div>
@@ -51,7 +51,7 @@
           </div>
         </section>
 
-        <section class="chapter right" data-start=".14" data-end=".28">
+        <section class="chapter right" data-start=".14" data-end=".28" aria-hidden="true">
           <div class="chapter-inner">
             <div class="chapter-box">
               <div class="eyebrow">01 — CRM & Sales</div>
@@ -67,7 +67,7 @@
           </div>
         </section>
 
-        <section class="chapter" data-start=".28" data-end=".42">
+        <section class="chapter" data-start=".28" data-end=".42" aria-hidden="true">
           <div class="chapter-inner">
             <div class="chapter-box">
               <div class="eyebrow">02 — Communication</div>
@@ -84,7 +84,7 @@
           </div>
         </section>
 
-        <section class="chapter right" data-start=".42" data-end=".56">
+        <section class="chapter right" data-start=".42" data-end=".56" aria-hidden="true">
           <div class="chapter-inner">
             <div class="chapter-box">
               <div class="eyebrow">03 — Appointments & Operations</div>
@@ -100,7 +100,7 @@
           </div>
         </section>
 
-        <section class="chapter" data-start=".56" data-end=".70">
+        <section class="chapter" data-start=".56" data-end=".70" aria-hidden="true">
           <div class="chapter-inner">
             <div class="chapter-box">
               <div class="eyebrow">04 — Content & Growth</div>
@@ -117,7 +117,7 @@
           </div>
         </section>
 
-        <section class="chapter right" data-start=".70" data-end=".84">
+        <section class="chapter right" data-start=".70" data-end=".84" aria-hidden="true">
           <div class="chapter-inner">
             <div class="chapter-box">
               <div class="eyebrow">05 — Industry Systems</div>
@@ -133,7 +133,7 @@
           </div>
         </section>
 
-        <section class="chapter center" data-start=".84" data-end="1.01">
+        <section class="chapter center" data-start=".84" data-end="1.01" aria-hidden="true">
           <div class="chapter-inner">
             <div class="chapter-box">
               <div class="eyebrow">Build • Connect • Automate</div>
@@ -162,7 +162,7 @@
     </div>
   </main>
 
-  <script src="/assets/site.js"></script>
-  <script src="/assets/home.js"></script>
+  <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/home.js" defer></script>
 </body>
 </html>
