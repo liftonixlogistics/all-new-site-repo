@@ -1,485 +1,168 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#0a0810" />
-  <title>Timex Solution Inc — AI Automation, Web, Marketing & Digital Systems</title>
-  <meta name="description" content="Timex Solution Inc builds AI automation, websites, apps, marketing systems, creative media and operational workflows that work together." />
-  <meta property="og:title" content="Timex Solution Inc" />
-  <meta property="og:description" content="AI automation and digital systems built to move your business forward." />
-  <meta property="og:type" content="website" />
-  <style>
-    :root {
-      --bg:#0a0810;
-      --bg-soft:#100d18;
-      --surface:#14111c;
-      --surface-2:#1b1724;
-      --text:#fbf9ff;
-      --muted:#b9b0c4;
-      --muted-2:#81788d;
-      --line:rgba(198,177,235,.14);
-      --pink:#9c6cff;
-      --pink-2:#c39bff;
-      --pink-soft:rgba(156,108,255,.14);
-      --gold:#d4b879;--gold-soft:rgba(212,184,121,.13);--max:1320px;
-      --radius:26px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;background:var(--bg)}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;overflow-x:hidden}
-    a{color:inherit;text-decoration:none}
-    button,input,textarea,select{font:inherit}
-    button{color:inherit}
-    ::selection{background:var(--pink);color:#110c17}
-    .shell{width:min(var(--max),calc(100% - 40px));margin-inline:auto}
-    .eyebrow{display:flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.17em;text-transform:uppercase;color:#d4c8cf}
-    .eyebrow::before{content:"";width:34px;height:1px;background:linear-gradient(90deg,var(--pink),transparent)}
-    .section-title{margin:16px 0 0;font-size:clamp(44px,6vw,92px);line-height:.92;letter-spacing:-.06em;font-weight:630;max-width:1040px}
-    .section-copy{margin:24px 0 0;max-width:680px;color:var(--muted);font-size:clamp(15px,1.4vw,18px);line-height:1.72}
-
-    .nav{position:fixed;z-index:1000;top:0;left:0;right:0;height:78px;border-bottom:1px solid rgba(255,255,255,.07);background:linear-gradient(to bottom,rgba(7,7,7,.9),rgba(7,7,7,.48));backdrop-filter:blur(18px)}
-    .nav-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:24px}
-    .brand{display:flex;align-items:center;gap:12px;min-width:max-content}
-    .brand-mark{width:34px;height:34px;border-radius:11px;display:grid;place-items:center;font-weight:900;background:linear-gradient(135deg,var(--pink),#6f49c8 68%,var(--gold));box-shadow:0 10px 36px rgba(156,108,255,.22)}
-    .brand-copy strong{display:block;font-size:15px;line-height:1;letter-spacing:-.02em}.brand-copy small{display:block;margin-top:5px;font-size:8px;letter-spacing:.23em;color:#968ca1;font-weight:750}
-    .nav-links{display:flex;align-items:center;gap:28px;color:#c8bfd2;font-size:13px}.nav-links a{transition:.22s}.nav-links a:hover{color:#fff}
-    .nav-cta,.pill{display:inline-flex;align-items:center;justify-content:center;gap:9px;border-radius:999px;border:1px solid var(--line);padding:12px 18px;font-size:13px;transition:.25s ease;cursor:pointer}
-    .nav-cta{background:linear-gradient(135deg,var(--pink),#b58aff);border-color:rgba(195,155,255,.7);color:#110c17;font-weight:850;box-shadow:0 10px 34px rgba(156,108,255,.18)}.nav-cta:hover{background:linear-gradient(135deg,var(--pink-2),#d4b879);transform:translateY(-2px)}
-    .menu-btn{display:none;width:42px;height:42px;border:1px solid var(--line);border-radius:50%;background:rgba(255,255,255,.04);align-items:center;justify-content:center;cursor:pointer}.menu-btn span,.menu-btn::before,.menu-btn::after{content:"";display:block;width:16px;height:1px;background:#fff;transition:.25s}.menu-btn span{margin:4px 0}
-    .mobile-menu{position:fixed;z-index:999;top:78px;left:0;right:0;background:#0b0912;border-bottom:1px solid var(--line);padding:22px 20px 26px;display:none}.mobile-menu.open{display:grid;gap:6px}.mobile-menu a{padding:13px 8px;color:#d9d1e4;border-bottom:1px solid rgba(255,255,255,.06)}
-
-    .hero{min-height:100svh;position:relative;display:flex;align-items:center;overflow:hidden;padding:132px 0 80px;background:
-      radial-gradient(circle at 78% 38%,rgba(156,108,255,.16),transparent 28%),
-      radial-gradient(circle at 12% 18%,rgba(126,82,205,.10),transparent 24%),
-      #0a0810}
-    .hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:76px 76px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.86),transparent 86%)}
-    .hero-orb{position:absolute;right:-7vw;top:8%;width:min(54vw,760px);aspect-ratio:1;border-radius:50%;border:1px solid rgba(255,255,255,.08);box-shadow:inset 0 0 120px rgba(156,108,255,.12),0 0 120px rgba(156,108,255,.08);animation:orbFloat 7s ease-in-out infinite alternate;pointer-events:none}
-    .hero-orb::before,.hero-orb::after{content:"";position:absolute;border-radius:50%;border:1px solid rgba(156,108,255,.24);inset:11%}.hero-orb::after{inset:28%;border-color:rgba(212,184,121,.18)}
-    @keyframes orbFloat{to{transform:translateY(18px) rotate(8deg)}}
-    .hero-grid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);gap:60px;align-items:end}
-    .hero h1{margin:20px 0 0;max-width:900px;font-size:clamp(64px,8vw,132px);line-height:.84;letter-spacing:-.075em;font-weight:630}.hero h1 span{color:var(--pink)}
-    .hero-side{padding-bottom:14px}.hero-side p{margin:0;color:var(--muted);font-size:clamp(15px,1.35vw,19px);line-height:1.72;max-width:520px}
-    .hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}.pill.primary{background:var(--pink);border-color:var(--pink);color:#110c17;font-weight:800}.pill.primary:hover{background:linear-gradient(135deg,var(--pink-2),#d4b879);transform:translateY(-2px)}.pill.ghost{background:rgba(255,255,255,.04)}.pill.ghost:hover{background:rgba(255,255,255,.08);transform:translateY(-2px)}
-    .hero-meta{margin-top:52px;display:flex;gap:26px;flex-wrap:wrap;color:#93899e;font-size:10px;letter-spacing:.15em;text-transform:uppercase}.hero-meta b{color:#dfd7e8;font-weight:600}
-    .scroll-cue{position:absolute;z-index:4;left:50%;bottom:24px;transform:translateX(-50%);display:flex;align-items:center;gap:10px;color:#91879b;font-size:9px;letter-spacing:.15em;text-transform:uppercase}.scroll-cue i{display:block;width:46px;height:1px;background:rgba(255,255,255,.18);overflow:hidden;position:relative}.scroll-cue i::after{content:"";position:absolute;inset:0;background:var(--pink);animation:scan 2s ease-in-out infinite}@keyframes scan{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
-
-    .journey{height:620vh;position:relative;background:#08060d}
-    .journey-sticky{position:sticky;top:0;height:100svh;height:100dvh;overflow:hidden;background:#08060d;isolation:isolate}
-    .journey-media{position:absolute;inset:0;z-index:1;background:#08060d}
-    .journey-media canvas{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity .35s ease;background:#08060d}
-    .journey-media canvas.ready{opacity:1}
-    .journey-shade{position:absolute;inset:0;z-index:2;pointer-events:none;background:linear-gradient(90deg,rgba(2,2,2,.62),rgba(2,2,2,.07) 42%,rgba(2,2,2,.18) 72%,rgba(2,2,2,.52)),linear-gradient(to bottom,rgba(0,0,0,.42),transparent 24%,transparent 74%,rgba(0,0,0,.7))}
-    .journey-head{position:absolute;z-index:5;top:102px;left:clamp(20px,4vw,68px);right:clamp(20px,4vw,68px);display:flex;align-items:center;justify-content:space-between;pointer-events:none}.journey-head .label{display:flex;align-items:center;gap:9px;font-size:10px;text-transform:uppercase;letter-spacing:.17em;color:#cbc1d5}.journey-head .label i{width:7px;height:7px;border-radius:50%;background:var(--pink);box-shadow:0 0 20px var(--pink)}.journey-percent{font-size:10px;letter-spacing:.15em;color:#9f95aa;font-variant-numeric:tabular-nums}
-    .journey-copy{position:absolute;z-index:5;inset:0;pointer-events:none}.story{position:absolute;top:50%;left:clamp(20px,6vw,96px);width:min(540px,44vw);opacity:0;transform:translateY(-42%) translateY(30px);transition:opacity .28s linear,transform .4s cubic-bezier(.2,.75,.25,1)}.story.active{opacity:1;transform:translateY(-42%) translateY(0)}.story.right{left:auto;right:clamp(20px,6vw,96px);text-align:right}.story.right .micro{justify-content:flex-end}.story.right p{margin-left:auto}.story.center{left:50%;top:auto;bottom:10%;width:min(900px,90vw);text-align:center;transform:translateX(-50%) translateY(24px)}.story.center.active{transform:translateX(-50%) translateY(0)}.story.center .micro{justify-content:center}.story.center p{margin-inline:auto}
-    .micro{display:flex;align-items:center;gap:9px;color:#ddd2e6;font-size:10px;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}.micro i{width:28px;height:1px;background:var(--pink)}.story h2{margin:0 0 16px;font-size:clamp(42px,6vw,88px);line-height:.9;letter-spacing:-.055em;font-weight:610}.story h2 span{color:var(--pink)}.story p{margin:0;max-width:500px;color:#bdb2c8;font-size:clamp(14px,1.18vw,18px);line-height:1.66}
-    .journey-progress{position:absolute;z-index:5;left:clamp(20px,4vw,68px);right:clamp(20px,4vw,68px);bottom:25px;height:1px;background:rgba(255,255,255,.14)}.journey-progress b{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--pink),var(--pink-2));box-shadow:0 0 16px rgba(156,108,255,.8)}
-    .journey-fallback{position:absolute;z-index:4;left:50%;bottom:44px;transform:translateX(-50%);padding:10px 14px;border-radius:999px;background:rgba(8,8,8,.68);border:1px solid var(--line);color:#cbc2d4;font-size:11px;display:none}.journey-fallback.show{display:block}
-
-    .services{padding:130px 0;background:linear-gradient(180deg,#0a0810,#100c18 58%,#0a0810)}
-    .services-top{display:flex;align-items:end;justify-content:space-between;gap:60px}.services-top .section-copy{max-width:520px}
-    .service-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:12px;margin-top:58px}.service-subhead{grid-column:1/-1;display:flex;align-items:end;justify-content:space-between;gap:28px;padding:6px 2px 14px;margin-top:10px;border-bottom:1px solid var(--line)}.service-subhead.secondary-label{margin-top:34px}.service-subhead span{font-size:12px;letter-spacing:.17em;text-transform:uppercase;color:#ddd2e6;font-weight:760}.service-subhead p{margin:0;max-width:560px;text-align:right;color:var(--muted-2);font-size:12px;line-height:1.55}.card{position:relative;min-height:280px;padding:28px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,rgba(255,255,255,.055),rgba(255,255,255,.018));overflow:hidden;transition:.3s ease;cursor:pointer}.card::before{content:"";position:absolute;inset:auto -30% -60% 30%;height:70%;background:radial-gradient(circle,rgba(156,108,255,.16),transparent 62%);opacity:0;transition:.3s}.card:hover{transform:translateY(-6px);border-color:rgba(156,108,255,.35)}.card:hover::before{opacity:1}.card.primary{grid-column:span 7;min-height:380px;background:radial-gradient(circle at 78% 18%,rgba(156,108,255,.18),transparent 36%),linear-gradient(145deg,rgba(156,108,255,.07),rgba(255,255,255,.018));border-color:rgba(156,108,255,.25)}.card.secondary{grid-column:span 5}.card.third{grid-column:span 4}.card-no{font-size:10px;letter-spacing:.16em;color:#93899d}.card-arrow{position:absolute;right:24px;top:22px;width:40px;height:40px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);transition:.25s}.card:hover .card-arrow{background:var(--pink);border-color:var(--pink);color:#110c17;transform:rotate(45deg)}.card h3{position:absolute;left:28px;right:28px;bottom:72px;margin:0;font-size:clamp(28px,3.4vw,52px);letter-spacing:-.05em;line-height:.95}.card p{position:absolute;left:28px;right:28px;bottom:25px;margin:0;color:#aea3b8;font-size:14px;line-height:1.45;max-width:440px}
-
-    .systems{padding:130px 0;background:#0a0810;border-top:1px solid rgba(255,255,255,.06)}
-    .system-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:80px;align-items:start;margin-top:60px}.stack{position:sticky;top:120px;min-height:500px;border:1px solid var(--line);border-radius:32px;background:radial-gradient(circle at 50% 50%,rgba(156,108,255,.12),transparent 42%),#100e16;display:grid;place-items:center;overflow:hidden}.core{width:150px;height:150px;border-radius:50%;display:grid;place-items:center;border:1px solid rgba(156,108,255,.45);box-shadow:0 0 80px rgba(156,108,255,.17),inset 0 0 55px rgba(156,108,255,.08);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#eee7fa}.core::before,.core::after{content:"";position:absolute;border:1px solid rgba(255,255,255,.07);border-radius:50%}.core::before{width:300px;height:300px}.core::after{width:430px;height:430px}.system-list{display:grid}.system-row{padding:27px 0;border-top:1px solid var(--line);display:grid;grid-template-columns:54px 1fr;gap:18px}.system-row:last-child{border-bottom:1px solid var(--line)}.system-row b{color:var(--pink);font-size:11px;letter-spacing:.13em}.system-row h4{margin:0;font-size:27px;letter-spacing:-.035em}.system-row p{margin:8px 0 0;color:#aca2b7;line-height:1.6;font-size:14px}
-
-    .proof{padding:130px 0;background:#0d0a13}.proof-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:14px;margin-top:54px}.proof-main,.proof-side{border:1px solid var(--line);border-radius:32px;background:linear-gradient(145deg,rgba(255,255,255,.045),rgba(255,255,255,.015))}.proof-main{padding:38px;min-height:380px}.proof-side{display:grid;grid-template-columns:1fr 1fr;overflow:hidden}.metric{padding:32px;border-bottom:1px solid var(--line);border-right:1px solid var(--line)}.metric:nth-child(even){border-right:0}.metric:nth-last-child(-n+2){border-bottom:0}.metric strong{display:block;font-size:clamp(38px,5vw,70px);line-height:1;letter-spacing:-.055em}.metric span{display:block;margin-top:10px;color:#a095aa;font-size:12px;line-height:1.5}.proof-main h3{margin:120px 0 15px;font-size:clamp(38px,4.5vw,66px);line-height:.98;letter-spacing:-.05em}.proof-main p{margin:0;max-width:600px;color:#ada2b7;line-height:1.65}
-
-    .contact{padding:130px 0 90px;background:#0a0810}.contact-box{border:1px solid rgba(156,108,255,.25);border-radius:34px;padding:50px;background:radial-gradient(circle at 85% 20%,rgba(156,108,255,.16),transparent 32%),linear-gradient(145deg,#14101a,#0c0912);display:grid;grid-template-columns:.9fr 1.1fr;gap:60px}.contact h2{margin:14px 0 0;font-size:clamp(48px,6.5vw,92px);line-height:.92;letter-spacing:-.06em}.contact h2 span{color:var(--pink)}.contact-note{margin:24px 0 0;color:#bbb0c5;line-height:1.68;max-width:520px}.contact-links{display:grid;gap:10px;margin-top:32px}.contact-links a{color:#ded5e8;font-size:14px}.contact-links a:hover{color:var(--pink)}
-    .form{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{display:grid;gap:8px}.field.full{grid-column:1/-1}.field label{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#9b91a5}.field input,.field textarea,.field select{width:100%;border:1px solid var(--line);background:rgba(255,255,255,.04);color:#fff;border-radius:15px;padding:14px 15px;outline:none;transition:.2s}.field textarea{min-height:130px;resize:vertical}.field input:focus,.field textarea:focus,.field select:focus{border-color:rgba(156,108,255,.55);box-shadow:0 0 0 3px rgba(156,108,255,.08)}.field select option{background:#111;color:#fff}.submit{grid-column:1/-1;margin-top:4px;border:0;border-radius:999px;background:var(--pink);color:#110c17;font-weight:850;padding:15px 20px;cursor:pointer;transition:.25s}.submit:hover{background:var(--pink-2);transform:translateY(-2px)}.form-note{grid-column:1/-1;color:#8b8095;font-size:11px;line-height:1.5;margin:2px 0 0}
-
-    footer{padding:30px 0 42px;border-top:1px solid rgba(255,255,255,.07);background:#0a0810;color:#93899e;font-size:12px}.footer-inner{display:flex;justify-content:space-between;gap:24px;align-items:center}.footer-links{display:flex;gap:20px}.footer-links a:hover{color:#fff}
-
-    @media(max-width:980px){
-      .nav-links,.nav>.shell>.nav-cta{display:none}.menu-btn{display:flex;flex-direction:column}
-      .hero-grid{grid-template-columns:1fr;gap:34px}.hero h1{max-width:820px}.hero-side{max-width:640px}.hero-orb{width:74vw;right:-28vw;top:16%}
-      .services-top{display:block}.services-top .section-copy{max-width:660px}.card.primary,.card.secondary,.card.third{grid-column:span 6}.card.primary{min-height:320px}
-      .system-wrap,.proof-grid,.contact-box{grid-template-columns:1fr}.stack{position:relative;top:auto;min-height:420px}.proof-main h3{margin-top:90px}.contact-box{gap:38px}
-      .journey-media canvas{object-position:center}
-    }
-    @media(max-width:680px){
-      .shell{width:min(100% - 28px,var(--max))}.nav{height:70px}.mobile-menu{top:70px}
-      .hero{padding:110px 0 70px;min-height:100svh}.hero h1{font-size:clamp(54px,16.5vw,82px)}.hero-meta{gap:16px;line-height:1.6}.scroll-cue{display:none}
-      .journey{height:560vh}.journey-head{top:88px;left:16px;right:16px}.journey-media{background-size:contain;background-repeat:no-repeat;background-position:center;background-color:#08060d}.journey-media canvas{object-fit:contain;background:#08060d}.journey-shade{background:linear-gradient(to bottom,rgba(0,0,0,.42),rgba(0,0,0,.04) 24%,rgba(0,0,0,.06) 68%,rgba(0,0,0,.78))}.story,.story.right{left:16px;right:16px;top:auto;bottom:11%;width:auto;text-align:left;transform:translateY(24px)}.story.active,.story.right.active{transform:translateY(0)}.story.right .micro{justify-content:flex-start}.story.right p{margin-left:0}.story.center{left:16px;right:16px;width:auto;bottom:10%;transform:translateY(24px)}.story.center.active{transform:translateY(0)}.story.center,.story.center p{text-align:left}.story.center .micro{justify-content:flex-start}.story h2{font-size:clamp(38px,12vw,64px);max-width:520px}.story p{font-size:14px;max-width:500px}.journey-progress{left:16px;right:16px;bottom:16px}
-      .services,.systems,.proof,.contact{padding:92px 0}.service-grid{grid-template-columns:1fr;margin-top:38px}.card.primary,.card.secondary,.card.third{grid-column:auto;min-height:250px}.card h3{bottom:68px;font-size:34px}.card p{font-size:13px}.system-wrap{gap:38px}.stack{min-height:350px}.core::after{width:330px;height:330px}.contact-box{padding:24px;border-radius:26px}.form{grid-template-columns:1fr}.field.full,.submit,.form-note{grid-column:auto}.footer-inner{display:grid;gap:14px}.footer-links{flex-wrap:wrap}
-    }
-    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-orb,.scroll-cue i::after{animation:none}.card,.pill,.nav-cta{transition:none}.journey{height:150vh}.story{display:none}.story[data-stage="final"]{display:block;opacity:1;transform:none}}
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#08060d">
+  <title>Timex Solution Inc — AI Automation & Digital Systems</title>
+  <meta name="description" content="Timex Solution Inc builds custom CRM, AI automation, websites, apps, marketing systems and connected business workflows.">
+  <link rel="stylesheet" href="/assets/site.css">
 </head>
-<body id="top">
-  <nav class="nav">
+<body class="home">
+  <nav class="site-nav">
     <div class="shell nav-inner">
-      <a class="brand" href="#top" aria-label="Timex Solution Inc home">
+      <a class="brand" href="/" aria-label="Timex Solution Inc home">
         <span class="brand-mark">T</span>
-        <span class="brand-copy"><strong>TIMEX</strong><small>SOLUTION INC</small></span>
+        <span class="brand-copy"><strong>Timex Solution Inc</strong><small>AUTOMATION • DIGITAL • CREATIVE</small></span>
       </a>
-      <div class="nav-links" aria-label="Primary navigation">
-        <a href="#journey">AI Automation</a><a href="#services">Services</a><a href="#systems">Process</a><a href="#contact">Contact</a>
+      <div class="nav-links">
+        <a data-nav href="/">Home</a>
+        <a data-nav href="/services">Services</a>
+        <a data-nav href="/automation">Automation</a>
+        <a data-nav href="/industries">Industries</a>
+        <a data-nav href="/contact">Contact</a>
       </div>
-      <a class="nav-cta" href="#contact">Start a project</a>
-      <button class="menu-btn" id="menuBtn" aria-label="Open menu" aria-expanded="false"><span></span></button>
+      <a class="nav-cta" href="/contact">Start a project</a>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false"><span></span></button>
     </div>
   </nav>
-  <div class="mobile-menu" id="mobileMenu"><a href="#journey">AI Automation</a><a href="#services">Services</a><a href="#systems">Process</a><a href="#contact">Contact</a></div>
+  <div class="mobile-menu">
+    <a href="/">Home</a><a href="/services">Services</a><a href="/automation">Automation</a><a href="/industries">Industries</a><a href="/contact">Contact</a>
+  </div>
 
-  <header class="hero">
-    <div class="hero-orb"></div>
-    <div class="shell hero-grid">
-      <div>
-        <div class="eyebrow">AI-first digital systems</div>
-        <h1>Make the business <span>move itself.</span></h1>
+  <main class="experience" aria-label="Interactive Timex automation experience">
+    <div class="experience-sticky">
+      <div class="scene-stage">
+        <div class="scene-glow"></div>
+        <div class="scene-lines"></div>
+        <canvas id="robotCanvas" class="robot-canvas" aria-label="Scroll-controlled Timex AI automation animation"></canvas>
+        <div class="scene-shade"></div>
       </div>
-      <div class="hero-side">
-        <p>Timex Solution Inc connects AI automation, websites, apps, marketing, creative production and operations into one system built around how your business actually works.</p>
-        <div class="hero-actions"><a class="pill primary" href="#journey">See AI in motion →</a><a class="pill ghost" href="#services">Explore capabilities ↗</a></div>
-        <div class="hero-meta"><span><b>AI Automation</b> first</span><span>Fresno, CA + remote</span><span>Build • connect • automate</span></div>
+
+      <div class="scene-copy">
+        <section class="chapter active" data-start="0" data-end=".14">
+          <div class="chapter-inner">
+            <div class="chapter-box">
+              <div class="eyebrow">Timex Solution Inc</div>
+              <h1>The <span class="accent">automation shift.</span></h1>
+              <p>We build connected systems that capture leads, respond, route work, follow up and keep the business moving without forcing your team to manage another pile of disconnected tools.</p>
+              <div class="chapter-actions"><a class="btn primary" href="/automation">Explore automation →</a><a class="btn ghost" href="/services">All services</a></div>
+            </div>
+          </div>
+        </section>
+
+        <section class="chapter right" data-start=".14" data-end=".28">
+          <div class="chapter-inner">
+            <div class="chapter-box">
+              <div class="eyebrow">01 — CRM & Sales</div>
+              <h2>Leads should move <span class="accent">themselves.</span></h2>
+              <p>Custom CRM, intelligent lead routing and sales pipelines built around your actual process—not a generic template.</p>
+              <div class="floating-cards">
+                <a class="float-card" href="/automation"><b>Custom CRM</b><span>Stages, records, assignments and reporting.</span></a>
+                <a class="float-card" href="/automation"><b>Lead Routing</b><span>Score, assign and move leads automatically.</span></a>
+                <a class="float-card" href="/automation"><b>Sales Pipelines</b><span>Trigger the next action without manual chasing.</span></a>
+                <a class="float-card" href="/automation"><b>Follow-Ups</b><span>Keep opportunities moving after the first contact.</span></a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="chapter" data-start=".28" data-end=".42">
+          <div class="chapter-inner">
+            <div class="chapter-box">
+              <div class="eyebrow">02 — Communication</div>
+              <h2>Respond before the lead <span class="accent">goes cold.</span></h2>
+              <p>AI reception, website chat, Instagram inquiries, email, SMS and DM workflows can answer, qualify and route conversations around the clock.</p>
+              <div class="chip-row">
+                <a class="chip" href="/automation">AI Receptionist</a>
+                <a class="chip" href="/automation">Chatbots</a>
+                <a class="chip" href="/automation">Email Automation</a>
+                <a class="chip" href="/automation">SMS Automation</a>
+                <a class="chip" href="/automation">Instagram / DM Automation</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="chapter right" data-start=".42" data-end=".56">
+          <div class="chapter-inner">
+            <div class="chapter-box">
+              <div class="eyebrow">03 — Appointments & Operations</div>
+              <h2>Remove the <span class="accent">repeatable work.</span></h2>
+              <p>Appointments, reminders, missed-call responses, approvals, status updates, document movement and team handoffs can run as one connected workflow.</p>
+              <div class="floating-cards">
+                <a class="float-card" href="/automation"><b>Appointment Automation</b><span>Booking, confirmations, reminders and rescheduling.</span></a>
+                <a class="float-card" href="/automation"><b>Internal Workflows</b><span>Tasks, approvals, notifications and handoffs.</span></a>
+                <a class="float-card" href="/business-operations"><b>Business Operations</b><span>Backend processes built to run consistently.</span></a>
+                <a class="float-card" href="/tech-it"><b>Integrations</b><span>Connect the tools your operation already uses.</span></a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="chapter" data-start=".56" data-end=".70">
+          <div class="chapter-inner">
+            <div class="chapter-box">
+              <div class="eyebrow">04 — Content & Growth</div>
+              <h2>Creative on the outside. <span class="accent">Systems underneath.</span></h2>
+              <p>Websites, apps, content, campaigns and auto-posting workflows connect into the same system so marketing does more than create activity.</p>
+              <div class="chip-row">
+                <a class="chip" href="/web-development">Web Development</a>
+                <a class="chip" href="/app-development">App Development</a>
+                <a class="chip" href="/digital-marketing">Digital Marketing</a>
+                <a class="chip" href="/creative-video">Creative & Video</a>
+                <a class="chip" href="/automation">Auto-Posting Workflows</a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="chapter right" data-start=".70" data-end=".84">
+          <div class="chapter-inner">
+            <div class="chapter-box">
+              <div class="eyebrow">05 — Industry Systems</div>
+              <h2>Automation built around the <span class="accent">business.</span></h2>
+              <p>The workflow changes by industry. We design the system around how your customers, team and operations actually work.</p>
+              <div class="floating-cards">
+                <a class="float-card" href="/industries"><b>Healthcare</b><span>Appointments, intake, reminders and inquiry routing.</span></a>
+                <a class="float-card" href="/industries"><b>Trucking & Logistics</b><span>Quotes, documents, updates and driver workflows.</span></a>
+                <a class="float-card" href="/industries"><b>Real Estate</b><span>Inquiry capture, qualification, scheduling and nurturing.</span></a>
+                <a class="float-card" href="/industries"><b>Insurance</b><span>Quote routing, documents, renewals and follow-up.</span></a>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="chapter center" data-start=".84" data-end="1.01">
+          <div class="chapter-inner">
+            <div class="chapter-box">
+              <div class="eyebrow">Build • Connect • Automate</div>
+              <h2>One partner for the <span class="accent">whole system.</span></h2>
+              <p>Explore the full service stack on dedicated pages, or tell us the process you want to improve and we’ll start from there.</p>
+              <div class="chapter-actions">
+                <a class="btn primary" href="/services">Explore all services →</a>
+                <a class="btn ghost" href="/contact">Start a project</a>
+              </div>
+              <div class="chip-row">
+                <a class="chip" href="/automation">Automation</a><a class="chip" href="/web-development">Web</a><a class="chip" href="/app-development">Apps</a><a class="chip" href="/digital-marketing">Marketing</a><a class="chip" href="/creative-video">Creative</a><a class="chip" href="/tech-it">Tech / IT</a><a class="chip" href="/business-operations">Operations</a>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
-    </div>
-    <div class="scroll-cue">Scroll to drive <i></i></div>
-  </header>
 
-  <section class="journey" id="journey" aria-label="AI automation journey">
-    <div class="journey-sticky">
-      <div class="journey-media">
-        <canvas id="journeyCanvas" role="img" aria-label="Scroll-controlled cinematic animation of a yellow classic car moving through a futuristic AI city"></canvas>
-      </div>
-      <div class="journey-shade"></div>
-      <div class="journey-head"><div class="label"><i></i>AI Automation Journey</div><div class="journey-percent" id="journeyPercent">00%</div></div>
-      <div class="journey-copy">
-        <article class="story active" data-start="0" data-end=".19"><div class="micro"><i></i>01 — Observe</div><h2>Every business already has a <span>route.</span></h2><p>We map how leads, requests, customers, files and decisions move through your company before we automate anything.</p></article>
-        <article class="story right" data-start=".19" data-end=".4"><div class="micro"><i></i>02 — Connect</div><h2>Turn scattered tools into one <span>flow.</span></h2><p>Your website, CRM, messages, forms, calendars and internal operations stop behaving like separate islands.</p></article>
-        <article class="story" data-start=".4" data-end=".62"><div class="micro"><i></i>03 — Automate</div><h2>Let AI handle the <span>repeatable.</span></h2><p>Qualification, routing, replies, follow-ups, scheduling and routine decisions can happen automatically around the clock.</p></article>
-        <article class="story right" data-start=".62" data-end=".82"><div class="micro"><i></i>04 — Scale</div><h2>One intelligent layer across <span>everything.</span></h2><p>Marketing creates demand, digital products capture it, creative communicates it, and automation keeps the entire system moving.</p></article>
-        <article class="story center" data-stage="final" data-start=".82" data-end="1.01"><div class="micro"><i></i>Timex Solution Inc</div><h2>Build it. Connect it. <span>Automate it.</span></h2><p>AI should not be another tool your team has to manage. It should quietly connect the tools you already use.</p></article>
-      </div>
-      <div class="journey-progress"><b id="journeyBar"></b></div>
-      <div class="journey-fallback" id="journeyFallback">Animation unavailable — please refresh to retry.</div>
-    </div>
-  </section>
-
-  <section class="services" id="services">
-    <div class="shell">
-      <div class="services-top">
-        <div><div class="eyebrow">Automation-first capabilities</div><h2 class="section-title">Systems that keep the business moving automatically.</h2></div>
-        <p class="section-copy">From custom CRM and lead routing to AI reception, follow-ups, messaging and internal workflows—we build automation around how your business actually operates.</p>
-      </div>
-      <div class="service-grid">
-        <div class="service-subhead"><span>AI & Automation Systems</span><p>Built around the real way your leads, customers, messages and internal work move.</p></div>
-
-        <a class="card primary service-link" href="#contact" data-service="Custom CRM & Lead Management"><span class="card-no">01 / CORE</span><span class="card-arrow">↗</span><h3>Custom CRM & Lead Management</h3><p>Custom pipelines, lead stages, contact records, follow-up logic, assignments and reporting designed around your exact sales process.</p></a>
-
-        <a class="card secondary service-link" href="#contact" data-service="AI Receptionist & Chatbots"><span class="card-no">02</span><span class="card-arrow">↗</span><h3>AI Receptionist & Chatbots</h3><p>AI-powered website and messaging assistants that answer common questions, capture inquiries, qualify leads and route conversations to the right person.</p></a>
-
-        <a class="card third service-link" href="#contact" data-service="Email, SMS & DM Automation"><span class="card-no">03</span><span class="card-arrow">↗</span><h3>Email, SMS & DM Automation</h3><p>Automated responses, follow-ups and conversation workflows across email, text and social messaging—including Instagram inquiries.</p></a>
-
-        <a class="card third service-link" href="#contact" data-service="Appointment & Follow-Up Automation"><span class="card-no">04</span><span class="card-arrow">↗</span><h3>Appointment & Follow-Up Automation</h3><p>Booking flows, confirmations, reminders, missed-call responses, rescheduling and post-appointment follow-ups that run automatically.</p></a>
-
-        <a class="card third service-link" href="#contact" data-service="Auto-Posting & Content Workflows"><span class="card-no">05</span><span class="card-arrow">↗</span><h3>Auto-Posting & Content Workflows</h3><p>Systems that organize, approve, schedule and publish content automatically across social channels while keeping the team in control.</p></a>
-
-        <a class="card third service-link" href="#contact" data-service="Lead Routing & Sales Pipeline Automation"><span class="card-no">06</span><span class="card-arrow">↗</span><h3>Lead Routing & Sales Pipelines</h3><p>Automatically score, assign and move leads through the right pipeline based on source, intent, status, location or your own business rules.</p></a>
-
-        <a class="card third service-link" href="#contact" data-service="Custom Business Workflows"><span class="card-no">07</span><span class="card-arrow">↗</span><h3>Custom Business Workflows</h3><p>Connect forms, calendars, CRMs, spreadsheets, messaging, internal tools and APIs into workflows built specifically for your operation.</p></a>
-
-        <a class="card third service-link" href="#contact" data-service="Internal Operations Automation"><span class="card-no">08</span><span class="card-arrow">↗</span><h3>Internal Operations Automation</h3><p>Automate repetitive backend work such as task creation, notifications, approvals, document movement, status updates and team handoffs.</p></a>
-
-        <div class="service-subhead secondary-label"><span>Digital & Creative Capabilities</span><p>The customer-facing systems that connect into the automation layer.</p></div>
-
-        <a class="card third service-link" href="#contact" data-service="Web Development"><span class="card-no">09</span><span class="card-arrow">↗</span><h3>Web Development</h3><p>Fast, responsive websites and landing pages designed around conversion, lead capture and automation.</p></a>
-        <a class="card third service-link" href="#contact" data-service="App Development"><span class="card-no">10</span><span class="card-arrow">↗</span><h3>App Development</h3><p>Useful digital products that fit the workflow instead of forcing the workflow to fit the software.</p></a>
-        <a class="card third service-link" href="#contact" data-service="Digital Marketing"><span class="card-no">11</span><span class="card-arrow">↗</span><h3>Digital Marketing</h3><p>Social, SEO, paid campaigns, content and lead systems connected to measurable business outcomes.</p></a>
-        <a class="card third service-link" href="#contact" data-service="Creative & Video"><span class="card-no">12</span><span class="card-arrow">↗</span><h3>Creative & Video</h3><p>Shoots, reels, AI video, editing, design and motion that keep the brand visually consistent.</p></a>
-        <a class="card third service-link" href="#contact" data-service="Tech / IT Solutions"><span class="card-no">13</span><span class="card-arrow">↗</span><h3>Tech / IT</h3><p>Infrastructure, integrations and practical technical support that keep the digital operation reliable.</p></a>
-        <a class="card third service-link" href="#contact" data-service="Business Operations"><span class="card-no">14</span><span class="card-arrow">↗</span><h3>Business Operations</h3><p>Backend workflows, operational support and process design for work that should run consistently.</p></a>
-      </div>
-    </div>
-  </section>
-
-  <section class="systems" id="systems">
-    <div class="shell">
-      <div class="eyebrow">How we work</div>
-      <h2 class="section-title">Automation starts with the workflow, not the software.</h2>
-      <div class="system-wrap">
-        <div class="stack"><div class="core">AI CORE</div></div>
-        <div class="system-list">
-          <div class="system-row"><b>01</b><div><h4>Map the real process</h4><p>We identify handoffs, repetitive tasks, delays, missing information and decisions that currently depend on manual follow-up.</p></div></div>
-          <div class="system-row"><b>02</b><div><h4>Connect the right systems</h4><p>Websites, apps, CRM, email, messaging, calendars, spreadsheets and internal tools are connected only where it creates value.</p></div></div>
-          <div class="system-row"><b>03</b><div><h4>Automate the repeatable work</h4><p>AI handles qualification, routing, responses, reminders, scheduling, summaries and other predictable actions.</p></div></div>
-          <div class="system-row"><b>04</b><div><h4>Measure and improve</h4><p>Once the workflow is live, we refine the system based on what is actually happening—not what we guessed would happen.</p></div></div>
+      <div class="scroll-note">Scroll to control the experience</div>
+      <div class="home-hud" aria-hidden="true">
+        <div class="progress-wrap">
+          <div class="progress-top"><span>Timex systems</span><span id="homePercent">00%</span></div>
+          <div class="progress-track"><b id="homeProgress"></b></div>
         </div>
+        <div class="home-dots"><i class="active"></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
       </div>
     </div>
-  </section>
+  </main>
 
-  <section class="proof">
-    <div class="shell">
-      <div class="eyebrow">Built for practical use</div>
-      <h2 class="section-title">Less theatre. More useful systems.</h2>
-      <div class="proof-grid">
-        <div class="proof-main"><div class="card-no">THE TIMEX APPROACH</div><h3>Creative on the outside.<br>Operational underneath.</h3><p>We combine the customer-facing pieces—web, content, campaigns and media—with the backend workflows that make those touchpoints useful after someone clicks, calls or submits a form.</p></div>
-        <div class="proof-side">
-          <div class="metric"><strong>24/7</strong><span>Automations can keep running outside business hours.</span></div>
-          <div class="metric"><strong>1</strong><span>Connected workflow instead of a stack of isolated tools.</span></div>
-          <div class="metric"><strong>AI</strong><span>Used where it reduces repetitive work and response time.</span></div>
-          <div class="metric"><strong>Human</strong><span>Strategy, judgment and creative direction stay where they matter.</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="contact" id="contact">
-    <div class="shell">
-      <div class="contact-box">
-        <div>
-          <div class="eyebrow">Start a project</div>
-          <h2>What should your business <span>stop doing manually?</span></h2>
-          <p class="contact-note">Tell us the process, problem or project. We’ll use that as the starting point instead of forcing you into a predefined package.</p>
-          <div class="contact-links"><a href="tel:+15595053443">+1 559-505-3443</a><a href="mailto:team@timexsolutioninc.com">team@timexsolutioninc.com</a><span>3661 West Shields Ave, Fresno, CA 93733</span></div>
-        </div>
-        <form class="form" id="contactForm">
-          <div class="field"><label for="name">Name</label><input id="name" name="name" autocomplete="name" required /></div>
-          <div class="field"><label for="company">Company</label><input id="company" name="company" autocomplete="organization" /></div>
-          <div class="field full"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required /></div>
-          <div class="field full"><label for="service">What do you need?</label><select id="service" name="service"><option>Custom CRM & Lead Management</option><option>AI Receptionist & Chatbots</option><option>Email, SMS & DM Automation</option><option>Appointment & Follow-Up Automation</option><option>Auto-Posting & Content Workflows</option><option>Lead Routing & Sales Pipeline Automation</option><option>Custom Business Workflows</option><option>Internal Operations Automation</option><option>Web Development</option><option>App Development</option><option>Digital Marketing</option><option>Creative & Video</option><option>Tech / IT Solutions</option><option>Business Operations</option><option>Something else</option></select></div>
-          <div class="field full"><label for="message">Tell us about it</label><textarea id="message" name="message" placeholder="What are you trying to improve, automate or build?" required></textarea></div>
-          <button class="submit" type="submit">Prepare email →</button>
-          <p class="form-note">This static preview opens your email app with the project details filled in. A production form endpoint can be connected when the final domain is deployed.</p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <footer><div class="shell footer-inner"><div>© 2026 Timex Solution Inc. All rights reserved.</div><div class="footer-links"><a href="#journey">AI Automation</a><a href="#services">Services</a><a href="#systems">Process</a><a href="#contact">Contact</a></div></div></footer>
-
-  <script>
-    (() => {
-      const clamp=(n,a=0,b=1)=>Math.min(b,Math.max(a,n));
-
-      const menuBtn=document.getElementById('menuBtn');
-      const mobileMenu=document.getElementById('mobileMenu');
-      menuBtn?.addEventListener('click',()=>{
-        const open=mobileMenu.classList.toggle('open');
-        menuBtn.setAttribute('aria-expanded',String(open));
-      });
-      mobileMenu?.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-        mobileMenu.classList.remove('open');
-        menuBtn.setAttribute('aria-expanded','false');
-      }));
-
-      document.querySelectorAll('.service-link').forEach(link=>link.addEventListener('click',()=>{
-        const service=link.dataset.service;
-        const select=document.getElementById('service');
-        if(service&&select){
-          [...select.options].some((o,i)=>o.text===service?(select.selectedIndex=i,true):false);
-        }
-      }));
-
-      document.getElementById('contactForm')?.addEventListener('submit',(e)=>{
-        e.preventDefault();
-        const fd=new FormData(e.currentTarget);
-        const subject=`Project inquiry — ${fd.get('service')||'Timex Solution Inc'}`;
-        const body=[
-          `Name: ${fd.get('name')||''}`,
-          `Company: ${fd.get('company')||''}`,
-          `Email: ${fd.get('email')||''}`,
-          `Service: ${fd.get('service')||''}`,
-          '',
-          String(fd.get('message')||'')
-        ].join('\n');
-        location.href=`mailto:team@timexsolutioninc.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-      });
-
-      const section=document.querySelector('.journey');
-      const canvas=document.getElementById('journeyCanvas');
-      const ctx=canvas.getContext('2d',{alpha:false,desynchronized:true});
-      const bar=document.getElementById('journeyBar');
-      const pct=document.getElementById('journeyPercent');
-      const fallback=document.getElementById('journeyFallback');
-      const stories=[...document.querySelectorAll('.story')];
-
-      const TOTAL_FRAMES=236;
-      const FRAME_W=720;
-      const FRAME_H=405;
-      const FRAMES_PER_SHEET=24;
-      const COLS=6;
-      const SHEET_COUNT=10;
-      const sheetUrls=Array.from({length:SHEET_COUNT},(_,i)=>
-        `/assets/frames-data-hq/sheet-${String(i).padStart(2,'0')}.b64.txt`
-      );
-
-      const cache=new Map();
-      const loading=new Map();
-      const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
-      let target=0;
-      let smooth=0;
-      let currentFrame=-1;
-      let requestedFrame=0;
-      let last=performance.now();
-      let failed=false;
-      let loadedCount=0;
-
-      function decodeBase64Image(text){
-        const b64=text.trim();
-        const raw=atob(b64);
-        const bytes=new Uint8Array(raw.length);
-        for(let i=0;i<raw.length;i++) bytes[i]=raw.charCodeAt(i);
-        const blob=new Blob([bytes],{type:'image/webp'});
-        const url=URL.createObjectURL(blob);
-        return new Promise((resolve,reject)=>{
-          const img=new Image();
-          img.decoding='async';
-          img.onload=()=>resolve({img,url});
-          img.onerror=()=>{
-            URL.revokeObjectURL(url);
-            reject(new Error('Sprite decode failed'));
-          };
-          img.src=url;
-        });
-      }
-
-      async function loadSheet(index){
-        if(index<0||index>=SHEET_COUNT) return null;
-        if(cache.has(index)) return cache.get(index);
-        if(loading.has(index)) return loading.get(index);
-
-        const promise=(async()=>{
-          const res=await fetch(sheetUrls[index],{cache:'force-cache'});
-          if(!res.ok) throw new Error(`Sprite request failed: ${res.status}`);
-          const data=await res.text();
-          const asset=await decodeBase64Image(data);
-          cache.set(index,asset);
-          loadedCount++;
-          pct.textContent=`Loading ${loadedCount}/${SHEET_COUNT}`;
-          return asset;
-        })().catch(err=>{
-          console.error('Timex animation:',err);
-          failed=true;
-          fallback.classList.add('show');
-          pct.textContent='LOAD ERROR';
-          return null;
-        }).finally(()=>loading.delete(index));
-
-        loading.set(index,promise);
-        return promise;
-      }
-
-      function trimCache(center){
-        const radius=innerWidth<760?1:2;
-        for(const [index,asset] of cache){
-          if(Math.abs(index-center)>radius){
-            URL.revokeObjectURL(asset.url);
-            cache.delete(index);
-          }
-        }
-      }
-
-      function resizeCanvas(){
-        const rect=canvas.getBoundingClientRect();
-        const dpr=Math.min(devicePixelRatio||1,innerWidth<760?1.15:1.5);
-        const w=Math.max(1,Math.round(rect.width*dpr));
-        const h=Math.max(1,Math.round(rect.height*dpr));
-        if(canvas.width!==w||canvas.height!==h){
-          canvas.width=w;
-          canvas.height=h;
-          currentFrame=-1;
-        }
-      }
-
-      function drawFrame(frame){
-        resizeCanvas();
-        frame=clamp(Math.round(frame),0,TOTAL_FRAMES-1);
-        requestedFrame=frame;
-        const sheetIndex=Math.floor(frame/FRAMES_PER_SHEET);
-        const local=frame-sheetIndex*FRAMES_PER_SHEET;
-        const asset=cache.get(sheetIndex);
-
-        if(!asset){
-          loadSheet(sheetIndex).then(a=>{
-            if(a && Math.floor(requestedFrame/FRAMES_PER_SHEET)===sheetIndex){
-              currentFrame=-1;
-              drawFrame(requestedFrame);
-            }
-          });
-          loadSheet(sheetIndex+1);
-          loadSheet(sheetIndex-1);
-          return;
-        }
-
-        if(frame===currentFrame) return;
-        currentFrame=frame;
-
-        const sx=(local%COLS)*FRAME_W;
-        const sy=Math.floor(local/COLS)*FRAME_H;
-        const cw=canvas.width;
-        const ch=canvas.height;
-        const portrait=innerWidth<=760 || innerHeight>innerWidth;
-        const scale=portrait
-          ? Math.min(cw/FRAME_W,ch/FRAME_H)
-          : Math.max(cw/FRAME_W,ch/FRAME_H);
-        const dw=FRAME_W*scale;
-        const dh=FRAME_H*scale;
-        const dx=(cw-dw)/2;
-        const dy=(ch-dh)/2;
-
-        ctx.fillStyle='#08060d';
-        ctx.fillRect(0,0,cw,ch);
-        ctx.imageSmoothingEnabled=true;
-        ctx.imageSmoothingQuality='high';
-        ctx.drawImage(asset.img,sx,sy,FRAME_W,FRAME_H,dx,dy,dw,dh);
-        canvas.classList.add('ready');
-
-        trimCache(sheetIndex);
-        if(sheetIndex<SHEET_COUNT-1) loadSheet(sheetIndex+1);
-        if(sheetIndex>0) loadSheet(sheetIndex-1);
-      }
-
-      function readTarget(){
-        if(reduced){
-          target=.92;
-          return;
-        }
-        const r=section.getBoundingClientRect();
-        const max=Math.max(1,section.offsetHeight-innerHeight);
-        target=clamp(-r.top/max);
-      }
-
-      function updateStory(p){
-        stories.forEach(s=>{
-          const start=Number(s.dataset.start);
-          const end=Number(s.dataset.end);
-          s.classList.toggle('active',p>=start&&p<end);
-        });
-        bar.style.width=(p*100).toFixed(2)+'%';
-        if(!failed && cache.size>0){
-          pct.textContent=String(Math.round(p*100)).padStart(2,'0')+'%';
-        }
-      }
-
-      function tick(now){
-        const dt=Math.min(.05,(now-last)/1000);
-        last=now;
-        const alpha=1-Math.exp(-(innerWidth<700?11:14)*dt);
-        smooth+=(target-smooth)*alpha;
-        updateStory(smooth);
-        drawFrame(smooth*(TOTAL_FRAMES-1));
-        requestAnimationFrame(tick);
-      }
-
-      addEventListener('scroll',readTarget,{passive:true});
-      addEventListener('resize',()=>{
-        readTarget();
-        currentFrame=-1;
-      },{passive:true});
-
-      readTarget();
-      loadSheet(0).then(first=>{
-        if(first){
-          drawFrame(0);
-          loadSheet(1);
-        }
-      });
-      if(reduced) loadSheet(9);
-      requestAnimationFrame(tick);
-    })();
-  </script>
+  <script src="/assets/site.js"></script>
+  <script src="/assets/home.js"></script>
 </body>
 </html>
